@@ -3,12 +3,13 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include <bits/stdc++.h> 
 
 using namespace std;
  int maxSubArray(vector<int>& nums) {
      int n = nums.size();
      vector<long long> dp(n+1,0);
-     long long ans = -1234,prevmax = -5432,currmax;
+     long long ans = 0,prevmax = INT_MIN,currmax;
 
      for(int i = 0; i < n; i++){
         currmax = nums[i];
