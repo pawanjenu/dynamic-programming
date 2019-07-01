@@ -39,6 +39,21 @@ int main(){
 
     return 0;
 
+    /*LOGIC 2
+      int n,temp,temp2;
+    scanf("%d",&n);
+    temp = n/10;
+    temp2 = n%1000;
+    if(temp%10 == temp/100){
+        printf("%d",n%10);
+        return 0;
+    }
+     if(temp2%10 == temp2/100){
+        printf("%d",n/1000);
+        return 0;
+    } */
+
    
+
 
 }
