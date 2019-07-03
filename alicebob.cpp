@@ -1,5 +1,5 @@
 //question link
-//https://leetcode.com/problems/maximum-subarray/
+//https://leetcode.com/problems/maximum-subarray
 #include<iostream>
 #include<vector>
 #include<algorithm>
