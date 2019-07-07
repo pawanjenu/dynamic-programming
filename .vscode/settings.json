@@ -4,5 +4,6 @@
     },
     "cSpell.ignoreWords": [
         "amleft"
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "Disabled"
 }
