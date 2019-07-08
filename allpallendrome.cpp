@@ -34,3 +34,21 @@ int countSubstrings(string s) {
                 ans+=comp(i,j,s);
 
     }
+
+/*logic 2
+int countSubstrings(string s) {
+        int ans = 0;
+        for(int i = 0; i < s.length(); i++) {
+            extendSubstring(s,i,i,ans);    // all the center position that odd substring can started 
+            extendSubstring(s,i,i+1,ans);  // all teh center position that even substring can started
+        }
+        return ans;
+    }
+    
+    void extendSubstring(string &s, int start, int end, int & ans) {
+        while(start >= 0 && end < s.length() && s[start] == s[end]) {   // extend the substring when s[start] == s[end] 
+            start--;
+            end++;
+            ans++;
+        }
+    } */
