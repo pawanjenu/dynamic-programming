@@ -7,7 +7,7 @@
 #include<unordered_map>
 using namespace std;
 
-vector<vector<int>> dp,vis;
+/* vector<vector<int>> dp,vis;
 int comp(int i, int j,string &s){
 
     if(i > j)
@@ -34,7 +34,7 @@ int countSubstrings(string s) {
                 ans+=comp(i,j,s);
 
     }
-
+*/
 /*logic 2
 int countSubstrings(string s) {
         int ans = 0;
@@ -52,3 +52,64 @@ int countSubstrings(string s) {
             ans++;
         }
     } */
+/* 
+int countSubstrings(string s) {
+    int n = s.size();
+    vector<vector<bool>> dp(n,vector<bool>(n,false));
+    int maxlen = 0;
+    for(int i = 0; i < n; i++)
+        dp[i][i] = true;
+
+    for(int i = 0; i < n-1; i++){
+        if(s[i] == s[i+1]){
+            dp[i][i+1] = true;
+            maxlen = 2;
+        }
+    }
+
+    for(int i = 3; i <= len; i++){
+
+        for(int j = 0; j <=len-i; j++){
+            int k = i + j -1;
+            if(s[j] == s[k] && dp[i+1][j-1])
+                dp[i][j] = true;
+
+            if(dp[i][j])
+                maxlen++;
+        }
+    }
+    return maxlen;
+
+}
+*/
+//LGIC 3(easy to understand)
+string countSubstrings(string s){
+    int n = s.size();
+    int left,right;
+    left = right = 0;
+
+    vector<vector<bool>> ispal(n,vector<bool>(n));
+
+    if(n == 0 || n<2)
+        return s;
+
+    for(int j = 1; j < n; j++)
+        for(int i = 0; i < j; i++){
+            bool pal = ispal[i+1][j-1] || j-i <= 2;
+
+            if(s[i] == s[j] && pal){
+                ispal[i][j] = true;
+
+            if(j-i > right-left){
+                left = i;
+                right = j;
+            }
+        }
+        }
+
+    return s.substr(left,right+1);
+}
+
+int main(){
+    cout << countSubstrings("abbagood");
+}

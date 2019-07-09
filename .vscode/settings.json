@@ -3,7 +3,8 @@
         "unordered_map": "cpp"
     },
     "cSpell.ignoreWords": [
-        "amleft"
+        "amleft",
+        "ispal"
     ],
     "C_Cpp.errorSquiggles": "Disabled"
 }
