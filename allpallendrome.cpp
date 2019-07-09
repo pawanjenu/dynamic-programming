@@ -35,23 +35,41 @@ int countSubstrings(string s) {
 
     }
 */
-/*logic 2
-int countSubstrings(string s) {
-        int ans = 0;
-        for(int i = 0; i < s.length(); i++) {
-            extendSubstring(s,i,i,ans);    // all the center position that odd substring can started 
-            extendSubstring(s,i,i+1,ans);  // all teh center position that even substring can started
-        }
-        return ans;
-    }
-    
-    void extendSubstring(string &s, int start, int end, int & ans) {
+//logic 2
+    string extendSubstring(string &s, int start, int end, int & ans) {
         while(start >= 0 && end < s.length() && s[start] == s[end]) {   // extend the substring when s[start] == s[end] 
             start--;
             end++;
             ans++;
         }
-    } */
+        start++;end--;
+        return s.substr(start,start-end+1);
+    } 
+string countSubstrings(string s) {
+        int ans = 0,max_len = 0;
+        string str1,str2;
+        string anss = "";
+        for(int i = 0; i < s.length(); i++) {
+           str1 =  extendSubstring(s,i,i,ans);    // all the center position that odd substring can started 
+            str2 = extendSubstring(s,i,i+1,ans);  // all teh center position that even substring can started
+
+        if(str1.length() > max_len){
+                max_len = str1.length();
+                anss = str1;
+            }
+            if(str2.length() > max_len){
+                max_len = str2.length();
+                anss = str2;
+            }
+        
+        }
+        
+        //cout << ans;
+        return anss;
+        
+    }
+    
+
 /* 
 int countSubstrings(string s) {
     int n = s.size();
@@ -83,7 +101,7 @@ int countSubstrings(string s) {
 }
 */
 //LGIC 3(easy to understand)
-string countSubstrings(string s){
+/* string countSubstrings(string s){
     int n = s.size();
     int left,right;
     left = right = 0;
@@ -110,6 +128,8 @@ string countSubstrings(string s){
     return s.substr(left,right+1);
 }
 
+*/
 int main(){
     cout << countSubstrings("abbagood");
 }
+
