@@ -1,10 +1,7 @@
 //question link
 //https://leetcode.com/problems/coin-change/ (similar problem but in this one we find out all the combination possible)
 #include <bits/stdc++.h>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <unordered_map>
+
 using namespace std;
 bool cmp(int x, int y)
 {

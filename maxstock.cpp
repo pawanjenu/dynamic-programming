@@ -1,9 +1,8 @@
 //question link
 //https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-#include<iostream>
-#include<vector>
-#include<algorithm>
+
 #include <bits/stdc++.h> 
+#include<vector>
 
 using namespace std;
  int maxProfit(vector<int>& prices) {
